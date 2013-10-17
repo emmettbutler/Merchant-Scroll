@@ -7,11 +7,10 @@ import BeautifulSoup
 
 args = None
 locale.setlocale( locale.LC_ALL, '' )
+STANDARD_PATHS = ["Magic%202014%20(M14)", "Return%20to%20Ravnica", "Gatecrash", "Theros", "Dragon's%20Maze"]
 
 def pull_lists(price_index):
-    STANDARD_PATHS = ["Magic%202014%20(M14)", "Return%20to%20Ravnica", "Gatecrash", "Theros", "Dragon's%20Maze"]
     pricemap = {}
-
 
     for path in STANDARD_PATHS:
             dat = requests.get("http://magic.tcgplayer.com/db/price_guide.asp?setname=%s" % path)
@@ -32,16 +31,17 @@ def pull_lists(price_index):
             )
     return pricemap
 
-def calculate_price(fname, price_bracket, include_lands=False):
+def calculate_price(fname, pricemap, price_bracket, include_lands=False):
     total = 0
     with open(fname, 'r') as f:
         for line in f.readlines():
             line = line.strip('\n')
             if not line: continue
             cardname = " ".join(line.split()[1:])
+            amount = int(line.split()[0].strip("x"))
             if cardname in ["Swamp", "Mountain", "Plains", "Island", "Forest"] and not include_lands:
                 continue
-            to_add = pricemap[cardname]*int(line.split()[0])
+            to_add = pricemap[cardname]*amount
             total += to_add
             print "%s(%s/u): %s" % (line,
                 locale.currency(pricemap[cardname], grouping=True),
@@ -69,4 +69,4 @@ if __name__ == "__main__":
         price_index = 5
 
     pricemap = pull_lists(price_index)
-    calculate_price(args.file[0], price_bracket, include_lands=args.lands)
+    calculate_price(args.file[0], pricemap, price_bracket, include_lands=args.lands)
