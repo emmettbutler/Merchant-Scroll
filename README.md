@@ -13,6 +13,7 @@ A .dec file is a simple plaintext file format that looks like this:
     2 Lightning Bolt
     2 Giant Growth
     4 Unsummon
+    3 Storm Crow
     2 Jace, Memory Adept
 
 Each line in the file references one card in the deck. The number indicates
