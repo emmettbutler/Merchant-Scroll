@@ -1,6 +1,8 @@
 Merchant Scroll
 ===============
 
+![](http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=2951&type=card)
+
 A script that reads the
 [tcgplayer.com card price lists](http://magic.tcgplayer.com/magic_price_guides.asp)
 and calculates deck prices from .dec files.
