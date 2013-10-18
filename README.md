@@ -2,7 +2,7 @@ Merchant Scroll
 ===============
 
 A script that reads the
-[http://magic.tcgplayer.com/magic_price_guides.asp](tcgplayer.com card price lists)
+[tcgplayer.com card price lists](http://magic.tcgplayer.com/magic_price_guides.asp)
 and calculates deck prices from .dec files.
 
 File format
@@ -18,10 +18,10 @@ A .dec file is a simple plaintext file format that looks like this:
 Each line in the file references one card in the deck. The number indicates
 how many of that card are included, and the name of the card is the official
 ascii name of the card. For official name reference, use
-[http://magic.tcgplayer.com/magic_price_guides.asp](these lists).
+[these lists](http://magic.tcgplayer.com/magic_price_guides.asp).
 
 .dec files are exported from the deckbuilder on
-[http://tappedout.net](tappedout).
+[tappedout](http://tappedout.net).
 
 Usage
 -----
