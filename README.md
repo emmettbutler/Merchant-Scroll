@@ -27,6 +27,10 @@ ascii name of the card. For official name reference, use
 Usage
 -----
 
+First, install dependencies with
+
+    pip install -r requirements.txt
+
 To use this script, simply invoke the python interpreter
 
     python merchant_scroll.py -f path/to/my/deck.dec
