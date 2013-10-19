@@ -40,7 +40,7 @@ def calculate_price(fname, pricemap, price_bracket, include_lands=False):
     print "\n\n***DECKLIST***"
     with open(fname, 'r') as f:
         for line in f.readlines():
-            line = line.strip('\n')
+            line = line.strip('\n\r')
             if not line: continue
             cardname = " ".join(line.split()[1:])
             amount = int(line.split()[0].strip("x"))
