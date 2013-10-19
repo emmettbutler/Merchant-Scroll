@@ -1,6 +1,7 @@
 import sys
 import argparse
 import locale
+import urllib
 
 import requests
 import BeautifulSoup
@@ -8,12 +9,15 @@ import BeautifulSoup
 args = None
 locale.setlocale( locale.LC_ALL, '' )
 STANDARD_PATHS = ["Magic%202014%20(M14)", "Return%20to%20Ravnica", "Gatecrash", "Theros", "Dragon's%20Maze"]
+BASIC_LANDS = ["Swamp", "Mountain", "Plains", "Island", "Forest"]
+ROOT_URL = "http://magic.tcgplayer.com/db/price_guide.asp?setname="
 
 def pull_lists(price_index):
     pricemap = {}
 
     for path in STANDARD_PATHS:
-            dat = requests.get("http://magic.tcgplayer.com/db/price_guide.asp?setname=%s" % path)
+            dat = requests.get("%s%s" % (ROOT_URL, path))
+            print "Fetched %s list" % urllib.unquote(path)
             soup = BeautifulSoup.BeautifulSoup(dat.text)
             table = soup.contents[11]
             pricemap = dict(
@@ -39,7 +43,7 @@ def calculate_price(fname, pricemap, price_bracket, include_lands=False):
             if not line: continue
             cardname = " ".join(line.split()[1:])
             amount = int(line.split()[0].strip("x"))
-            if cardname in ["Swamp", "Mountain", "Plains", "Island", "Forest"] and not include_lands:
+            if cardname in BASIC_LANDS and not include_lands:
                 continue
             to_add = pricemap[cardname]*amount
             total += to_add
