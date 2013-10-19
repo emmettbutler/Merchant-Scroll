@@ -37,6 +37,7 @@ def pull_lists(price_index):
 
 def calculate_price(fname, pricemap, price_bracket, include_lands=False):
     total = 0
+    print "\n\n***DECKLIST***"
     with open(fname, 'r') as f:
         for line in f.readlines():
             line = line.strip('\n')
@@ -48,7 +49,7 @@ def calculate_price(fname, pricemap, price_bracket, include_lands=False):
             to_add = pricemap[cardname]*amount
             total += to_add
             print line
-            print "(%s/u): %s" % (locale.currency(pricemap[cardname], grouping=True), locale.currency(to_add, grouping=True))
+            print "%s(%s/u): %s" % (" "*20, locale.currency(pricemap[cardname], grouping=True), locale.currency(to_add, grouping=True))
         print "Total: %s (at %s price bracket)" % (locale.currency(total, grouping=True), price_bracket)
 
 
