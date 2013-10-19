@@ -47,9 +47,8 @@ def calculate_price(fname, pricemap, price_bracket, include_lands=False):
                 continue
             to_add = pricemap[cardname]*amount
             total += to_add
-            print "%s(%s/u): %s" % (line,
-                locale.currency(pricemap[cardname], grouping=True),
-                locale.currency(to_add, grouping=True))
+            print line
+            print "(%s/u): %s" % (locale.currency(pricemap[cardname], grouping=True), locale.currency(to_add, grouping=True))
         print "Total: %s (at %s price bracket)" % (locale.currency(total, grouping=True), price_bracket)
 
 
