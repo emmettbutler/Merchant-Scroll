@@ -10,7 +10,7 @@ and calculates deck prices from .dec files.
 File format
 -----------
 
-A .dec file is a simple plaintext file format that looks like this:
+.dec is a simple plaintext file format that looks like this:
 
     2 Lightning Bolt
     2 Giant Growth
