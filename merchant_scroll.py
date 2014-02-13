@@ -8,7 +8,7 @@ import BeautifulSoup
 
 args = None
 locale.setlocale( locale.LC_ALL, '' )
-STANDARD_PATHS = ["Magic%202014%20(M14)", "Return%20to%20Ravnica", "Gatecrash", "Theros", "Dragon's%20Maze"]
+STANDARD_PATHS = ["Magic%202014%20(M14)", "Return%20to%20Ravnica", "Gatecrash", "Theros", "Born%20of%20the%20Gods", "Dragon's%20Maze"]
 BASIC_LANDS = ["Swamp", "Mountain", "Plains", "Island", "Forest"]
 ROOT_URL = "http://magic.tcgplayer.com/db/price_guide.asp?setname="
 
